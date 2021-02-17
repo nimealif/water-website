@@ -1,0 +1,207 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+section{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 40px 100px;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+}
+
+header .logo{
+    position: relative;
+    font-size: 2em;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 700px;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+    transition: 0.9s;
+}
+
+header .toggle{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background: url(img/toggler-icon.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    background-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+header .toggle.active{
+    background: url(img/close.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    background-size: 30px;
+    background-color: transparent;
+
+}
+
+header .toggle.active::before{
+    content: "close";
+}
+
+header .toggle:before{
+    content: "menu";
+    text-transform: uppercase;
+    position: absolute;
+    top: 9px;
+    right: 45px;
+    color: #111;
+    letter-spacing: 2px;
+    font-size: 14px;
+    background-color: #fff;
+
+}
+
+
+section video{
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.glass{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 25%;
+    height: 100%;
+    backdrop-filter:blur(10px);
+    z-index: 1;
+    box-shadow: 10px 0  15px rgba(0, 0, 0, 0.1);
+    transition: 0.5s;
+    transition-delay: 1s;
+}
+
+section.active .glass{
+    width: 100%;
+    box-shadow: 10px 0  15px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(15px);
+    transition-delay: 0s;
+}
+
+section .content{
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    transition: 0.5s;
+    transition-delay:1s ;
+}
+
+section .content h2{
+    position: relative;
+    color: rgb(228, 194, 205);
+    font-size: 50px;
+    background-color: teal;
+    line-height: 0.55em;
+    text-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+    text-transform: uppercase;
+}
+
+section.active .content{
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-200px);
+    transition-delay:0s ;
+}
+
+section .sci{
+    position: absolute;
+    bottom: 40px;
+    right: 100px;
+    display: flex;
+    z-index: 100;
+}
+
+section .sci li{
+    list-style: none;
+    margin: 5px;
+    padding: 0 6px;
+    background-color: #fff;
+    transition: 0.5s;
+    transition-delay:calc(0.2s *var(--i)) ;
+}
+
+
+section .sci li a{
+    color: #111;
+    text-decoration: none;
+    display: inline-block;
+}
+
+section.active .sci li {
+    opacity: 0;
+    visibility: hidden;
+    transform: translatey(100px);
+    transition-delay:0 ;
+
+}
+
+
+section .navigation{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+}
+
+section .navigation li{
+    list-style: none;
+    text-align: center;
+    margin: 15px 0;
+    visibility: hidden;
+    transition: 0.5s;
+    transform: translateX(200px);
+    
+
+}
+
+section.active .navigation li{
+    visibility: visible;
+    transform: translateX(0);
+    transition-delay:calc(0.2s *var(--i)) ;
+}
+
+section .navigation li a{
+    color: #111;
+    font-size: 1.15em;
+    text-decoration: none;
+    display: inline-block;
+    background: #fff;
+    
+}
+
+section .navigation li a:hover{
+    background: #111;
+    color: #fff;
+    text-transform: lowercase;
+}
